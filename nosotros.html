@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros — Raiza</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    RAIZA
+    <span>Diseño desde la Raíz</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="colecciones.html">Colecciones</a></li>
+    <li><a href="trazabilidad.html">Trazabilidad</a></li>
+    <li><a href="nosotros.html" style="color: var(--ink);">Nosotros</a></li>
+    <li><a href="eventos.html">Dónde Estamos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <button class="nav-burger" id="burger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="colecciones.html">Colecciones</a>
+  <a href="trazabilidad.html">Trazabilidad</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="eventos.html">Dónde Estamos</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<div style="padding-top: var(--nav-h);">
+
+  <!-- MANIFIESTO -->
+  <section class="section" style="max-width: 800px;">
+    <p class="section-label reveal">Quiénes somos</p>
+    <h1 class="section-title reveal">Raiza es una marca<br>que nace de la <em>tierra</em></h1>
+    <div class="divider reveal" style="margin: 40px 0;"></div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+      <p class="section-body reveal">
+        Raiza es una marca ecuatoriana de diseño limitado que nace de la tierra, las manos y las historias que pocas veces se cuentan.
+        <br><br>
+        Cada colección es un lugar. Cada producto, una pieza única inspirada en la cultura, el paisaje y la tradición oral de una región del Ecuador.
+      </p>
+      <p class="section-body reveal">
+        No hay producción masiva. Cuando una colección se agota, no regresa. Compramos con intención. Diseñamos con raíz.
+        <br><br>
+        Ecuador tiene una riqueza cultural que merece ser contada de otra manera — no como souvenir, sino como objeto con historia.
+      </p>
+    </div>
+  </section>
+
+  <!-- VISIÓN -->
+  <section style="background: var(--ink); padding: 100px 48px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <p class="section-label reveal" style="color: var(--terra-light);">Nuestra visión</p>
+      <h2 class="reveal" style="
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: 300;
+        color: white;
+        line-height: 1.1;
+        max-width: 700px;
+      ">
+        Construir un <em style="color: var(--terra-light); font-style: italic;">archivo vivo</em> del Ecuador a través del diseño.
+      </h2>
+      <p class="section-body reveal" style="color: rgba(255,255,255,0.5); margin-top: 32px;">
+        Una colección por región. Una historia por objeto. Una edición que no se repite.
+      </p>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="section">
+    <p class="section-label reveal">Las personas detrás</p>
+    <h2 class="section-title reveal">El <em>equipo</em></h2>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background: linear-gradient(135deg, var(--riviel-3), var(--riviel-4));"></div>
+        <h3 class="team-name">María José Pérez</h3>
+        <p class="team-role">Cofundadora</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background: linear-gradient(135deg, var(--terra-light), var(--cream-dark));"></div>
+        <h3 class="team-name">Ana Cristina Pérez</h3>
+        <p class="team-role">Cofundadora</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background: linear-gradient(135deg, var(--riviel-1), var(--riviel-2));"></div>
+        <h3 class="team-name">Pablo Donoso</h3>
+        <p class="team-role">Cofundador</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section reveal" style="text-align: center; max-width: 600px; padding-top: 0;">
+    <a href="colecciones.html" class="btn-outline">Ver colecciones</a>
+    &nbsp;&nbsp;
+    <a href="contacto.html" class="hero-cta" style="display: inline-flex; margin-top: 16px;">
+      Contacto
+      <svg width="16" height="10" viewBox="0 0 20 12" fill="none" style="margin-left: 12px;">
+        <path d="M0 6H18M14 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+    </a>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-logo">RAIZA</div>
+  <p class="footer-copy">© 2025 Raiza · Ecuador</p>
+  <ul class="footer-links">
+    <li><a href="colecciones.html">Colecciones</a></li>
+    <li><a href="trazabilidad.html">Trazabilidad</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => { mobileMenu.classList.toggle('open'); });
+mobileMenu.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => mobileMenu.classList.remove('open')); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

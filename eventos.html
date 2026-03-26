@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dónde Estamos — Raiza</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    RAIZA
+    <span>Diseño desde la Raíz</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="colecciones.html">Colecciones</a></li>
+    <li><a href="trazabilidad.html">Trazabilidad</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="eventos.html" style="color: var(--ink);">Dónde Estamos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <button class="nav-burger" id="burger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="colecciones.html">Colecciones</a>
+  <a href="trazabilidad.html">Trazabilidad</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="eventos.html">Dónde Estamos</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<div style="padding-top: var(--nav-h);">
+  <section class="section" style="padding-bottom: 40px;">
+    <p class="section-label reveal">Encuéntranos</p>
+    <h1 class="section-title reveal">Dónde <em>estamos</em></h1>
+    <p class="section-body reveal">Raiza no tiene tienda física permanente. Nos encontrarás en ferias, bazares y eventos de diseño en Ecuador. Sigue nuestro Instagram para estar al día.</p>
+  </section>
+
+  <!-- EVENTOS LIST -->
+  <section style="padding: 0 48px 80px; max-width: 1200px; margin: 0 auto;">
+    <div class="eventos-list" id="eventosList">
+      <div style="padding: 40px; text-align: center; color: var(--ink-light); font-size: 0.8rem; letter-spacing: 0.1em;">
+        Cargando eventos...
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTA EDICIÓN -->
+  <section style="background: var(--cream-dark); padding: 60px 48px; margin-bottom: 0;">
+    <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+      <p class="section-label reveal">¿Quieres que estemos en tu evento?</p>
+      <h2 class="section-title reveal" style="font-size: 2rem;">Escríbenos</h2>
+      <p class="section-body reveal" style="margin: 16px auto 32px; text-align: center;">Si organizas un mercado o evento de diseño en Ecuador y quieres que Raiza participe, contáctanos.</p>
+      <a href="contacto.html" class="btn-outline reveal">Contactar</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-logo">RAIZA</div>
+  <p class="footer-copy">© 2025 Raiza · Ecuador</p>
+  <ul class="footer-links">
+    <li><a href="colecciones.html">Colecciones</a></li>
+    <li><a href="trazabilidad.html">Trazabilidad</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => { mobileMenu.classList.toggle('open'); });
+mobileMenu.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => mobileMenu.classList.remove('open')); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// Cargar eventos desde JSON
+fetch('data/eventos.json')
+  .then(r => r.json())
+  .then(eventos => {
+    const list = document.getElementById('eventosList');
+    if (!eventos.length) {
+      list.innerHTML = '<div style="padding: 40px; text-align: center; color: var(--ink-light); font-size: 0.8rem; letter-spacing: 0.1em;">No hay eventos próximos. Sigue nuestro Instagram para enterarte primero.</div>';
+      return;
+    }
+    list.innerHTML = eventos.map(ev => `
+      <div class="evento-item reveal">
+        <div class="evento-fecha">
+          ${ev.fecha_dia}
+          <span>${ev.fecha_mes} ${ev.fecha_año}</span>
+        </div>
+        <div>
+          <p class="evento-info-nombre">${ev.nombre}</p>
+          <p class="evento-info-lugar">${ev.lugar}${ev.direccion !== 'Por confirmar' ? ' · ' + ev.direccion : ''}</p>
+          ${ev.descripcion ? `<p style="font-size: 0.72rem; color: var(--ink-light); margin-top: 6px;">${ev.descripcion}</p>` : ''}
+        </div>
+        <div class="evento-tag">${ev.activo ? 'Confirmado' : 'Próximamente'}</div>
+      </div>
+    `).join('');
+    // re-observe reveals
+    list.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  })
+  .catch(() => {
+    document.getElementById('eventosList').innerHTML = `
+      <div class="evento-item reveal">
+        <div class="evento-fecha">15<span>ABR 2025</span></div>
+        <div>
+          <p class="evento-info-nombre">El Gran Bazar</p>
+          <p class="evento-info-lugar">Quito, Ecuador</p>
+        </div>
+        <div class="evento-tag">Confirmado</div>
+      </div>
+    `;
+  });
+</script>
+</body>
+</html>
