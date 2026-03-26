@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "nombre": "El Gran Bazar",
+    "lugar": "Quito, Ecuador",
+    "direccion": "Por confirmar",
+    "fecha_dia": "15",
+    "fecha_mes": "ABR",
+    "fecha_año": "2025",
+    "descripcion": "Mercado de diseño independiente ecuatoriano.",
+    "activo": true
+  },
+  {
+    "id": 2,
+    "nombre": "Feria de Diseño PUCP",
+    "lugar": "Quito, Ecuador",
+    "direccion": "Por confirmar",
+    "fecha_dia": "28",
+    "fecha_mes": "MAY",
+    "fecha_año": "2025",
+    "descripcion": "Espacio de diseño y artesanía contemporánea.",
+    "activo": false
+  }
+]
