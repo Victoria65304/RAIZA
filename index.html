@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raiza — Diseño desde la Raíz</title>
+  <meta name="description" content="Raiza es una marca ecuatoriana de diseño limitado. Cada colección es un lugar, cada producto una historia que no se repite.">
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    .hero-full {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--cream);
+      padding: var(--nav-h) 24px 80px;
+    }
+    .hero-full-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(114,176,160,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 20%, rgba(196,168,130,0.1) 0%, transparent 50%);
+    }
+    .hero-isotipo {
+      width: 72px;
+      height: 80px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+      margin-bottom: 28px;
+    }
+    .hero-brand { text-align: center; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
+    .hero-brand-name {
+      font-family: var(--font-display);
+      font-size: clamp(4.5rem, 14vw, 10rem);
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      line-height: 1;
+      display: block;
+    }
+    .hero-brand-sub {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--terra);
+      display: block;
+      margin-top: 14px;
+    }
+    .hero-tagline {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+      text-align: center;
+      max-width: 400px;
+      line-height: 2;
+      margin-top: 48px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+    .hero-scroll-cta {
+      position: absolute;
+      bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: fadeIn 1s 1.2s forwards;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .hero-scroll-cta span {
+      font-size: 0.58rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      font-family: var(--font-body);
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--terra-light), transparent);
+      animation: scrollLine 2s 1.5s infinite;
+    }
+
+    .traza-inline { background: var(--ink); padding: 100px 48px; }
+    .traza-inline-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+    .traza-steps-inline { display: flex; flex-direction: column; gap: 36px; }
+    .traza-step-inline { display: flex; gap: 24px; align-items: flex-start; }
+    .traza-step-num-inline {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--terra-light);
+      line-height: 1;
+      min-width: 44px;
+    }
+    .traza-step-title-inline {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 6px;
+    }
+    .traza-step-body-inline {
+      font-size: 0.78rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .colecciones-preview { padding: 100px 0 0; }
+    .colecciones-preview-header {
+      padding: 0 48px;
+      max-width: 1200px;
+      margin: 0 auto 64px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .ver-todas {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      border-bottom: 1px solid var(--ink-light);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .ver-todas:hover { color: var(--terra); border-color: var(--terra); }
+
+    @media (max-width: 900px) {
+      .traza-inline-inner { grid-template-columns: 1fr; gap: 48px; }
+      .traza-inline { padding: 80px 24px; }
+      .colecciones-preview-header { flex-direction: column; align-items: flex-start; gap: 16px; padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" style="display:flex; align-items:center; gap: 10px;">
+    <svg width="26" height="30" viewBox="0 0 60 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="42" x2="30" y2="20" stroke="#3d3d3d" stroke-width="2.5" stroke-linecap="round"/>
+      <ellipse cx="18" cy="28" rx="7" ry="4" transform="rotate(-30 18 28)" fill="#3d3d3d"/>
+      <ellipse cx="14" cy="22" rx="5.5" ry="3" transform="rotate(-20 14 22)" fill="#3d3d3d"/>
+      <ellipse cx="22" cy="20" rx="5" ry="3" transform="rotate(-10 22 20)" fill="#3d3d3d"/>
+      <ellipse cx="42" cy="28" rx="7" ry="4" transform="rotate(30 42 28)" fill="#3d3d3d"/>
+      <ellipse cx="46" cy="22" rx="5.5" ry="3" transform="rotate(20 46 22)" fill="#3d3d3d"/>
+      <ellipse cx="38" cy="20" rx="5" ry="3" transform="rotate(10 38 20)" fill="#3d3d3d"/>
+      <ellipse cx="30" cy="14" rx="4" ry="6" fill="#3d3d3d"/>
+      <line x1="10" y1="45" x2="50" y2="45" stroke="#3d3d3d" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="10" y1="45" x2="6" y2="52" stroke="#3d3d3d" stroke-width="2" stroke-linecap="round"/>
+      <line x1="50" y1="45" x2="54" y2="52" stroke="#3d3d3d" stroke-width="2" stroke-linecap="round"/>
+      <polyline points="24,45 30,54 36,45" fill="none" stroke="#3d3d3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="30" cy="59" r="2" fill="#3d3d3d"/>
+    </svg>
+    <span style="display:flex; flex-direction:column; line-height:1;">
+      <span style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; letter-spacing: 0.12em; color: var(--ink);">RAIZA</span>
+      <span style="font-family: var(--font-body); font-size: 0.48rem; font-weight: 300; letter-spacing: 0.3em; color: var(--terra); text-transform: uppercase; margin-top: 1px;">Diseño desde la Raíz</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="colecciones.html">Colecciones</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="eventos.html">Dónde Estamos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <button class="nav-burger" id="burger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="colecciones.html">Colecciones</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="eventos.html">Dónde Estamos</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="hero-full">
+  <div class="hero-full-bg"></div>
+
+  <svg class="hero-isotipo" viewBox="0 0 60 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="30" y1="42" x2="30" y2="20" stroke="#3d3d3d" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="18" cy="28" rx="7" ry="4" transform="rotate(-30 18 28)" fill="#3d3d3d"/>
+    <ellipse cx="14" cy="22" rx="5.5" ry="3" transform="rotate(-20 14 22)" fill="#3d3d3d"/>
+    <ellipse cx="22" cy="20" rx="5" ry="3" transform="rotate(-10 22 20)" fill="#3d3d3d"/>
+    <ellipse cx="42" cy="28" rx="7" ry="4" transform="rotate(30 42 28)" fill="#3d3d3d"/>
+    <ellipse cx="46" cy="22" rx="5.5" ry="3" transform="rotate(20 46 22)" fill="#3d3d3d"/>
+    <ellipse cx="38" cy="20" rx="5" ry="3" transform="rotate(10 38 20)" fill="#3d3d3d"/>
+    <ellipse cx="30" cy="14" rx="4" ry="6" fill="#3d3d3d"/>
+    <line x1="10" y1="45" x2="50" y2="45" stroke="#3d3d3d" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="10" y1="45" x2="6" y2="52" stroke="#3d3d3d" stroke-width="2" stroke-linecap="round"/>
+    <line x1="50" y1="45" x2="54" y2="52" stroke="#3d3d3d" stroke-width="2" stroke-linecap="round"/>
+    <polyline points="24,45 30,54 36,45" fill="none" stroke="#3d3d3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="30" cy="59" r="2" fill="#3d3d3d"/>
+  </svg>
+
+  <div class="hero-brand">
+    <span class="hero-brand-name">RAIZA</span>
+    <span class="hero-brand-sub">Diseño desde la Raíz</span>
+  </div>
+
+  <p class="hero-tagline">
+    Objetos con historia. Cada colección nace de un lugar del Ecuador, honra una tradición y no se vuelve a repetir.
+  </p>
+
+  <button class="hero-scroll-cta" onclick="document.getElementById('trazabilidad').scrollIntoView({behavior:'smooth'})">
+    <span>Descubrir</span>
+    <div class="hero-scroll-line"></div>
+  </button>
+</section>
+
+<!-- TRAZABILIDAD -->
+<section class="traza-inline" id="trazabilidad">
+  <div class="traza-inline-inner">
+    <div class="reveal">
+      <p class="section-label" style="color: var(--terra-light);">Lo que nos diferencia</p>
+      <h2 class="section-title" style="color: white;">Cada pieza tiene<br>un <em style="color: var(--terra-light);">origen</em></h2>
+      <div class="divider" style="margin: 32px 0; background: var(--terra-light);"></div>
+      <p class="section-body" style="color: rgba(255,255,255,0.55); max-width: 100%;">
+        Raiza nace de la convicción de que el diseño debe estar enraizado en la tierra que lo produce. Cuando compras una pieza Raiza, recibes su trazabilidad completa: quién la hizo, de dónde vienen los materiales y qué historia la inspiró.
+        <br><br>
+        No hay producción masiva. Cuando una colección se agota, no regresa.
+      </p>
+    </div>
+    <div class="traza-steps-inline reveal">
+      <div class="traza-step-inline">
+        <span class="traza-step-num-inline">01</span>
+        <div>
+          <p class="traza-step-title-inline">Territorio</p>
+          <p class="traza-step-body-inline">Cada colección empieza con un viaje a una región del Ecuador. Cultura, paisaje e historia oral antes de diseñar un solo objeto.</p>
+        </div>
+      </div>
+      <div class="traza-step-inline">
+        <span class="traza-step-num-inline">02</span>
+        <div>
+          <p class="traza-step-title-inline">Materia y oficio</p>
+          <p class="traza-step-body-inline">Materiales y artesanos de la región. Su nombre y oficio forman parte de la trazabilidad de cada pieza.</p>
+        </div>
+      </div>
+      <div class="traza-step-inline">
+        <span class="traza-step-num-inline">03</span>
+        <div>
+          <p class="traza-step-title-inline">Edición limitada</p>
+          <p class="traza-step-body-inline">5 a 10 unidades por producto. Cuando se agotan, la edición cierra para siempre. Nunca se repite el mismo objeto.</p>
+        </div>
+      </div>
+      <div class="traza-step-inline">
+        <span class="traza-step-num-inline">04</span>
+        <div>
+          <p class="traza-step-title-inline">Tu etiqueta de origen</p>
+          <p class="traza-step-body-inline">Cada pieza llega con su etiqueta: diseño, materia, oficio y número de edición. El registro completo de lo que tienes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLECCIONES PREVIEW -->
+<section class="colecciones-preview">
+  <div class="colecciones-preview-header">
+    <div class="reveal">
+      <p class="section-label">Archivo de ediciones</p>
+      <h2 class="section-title">Colecciones</h2>
+    </div>
+    <a href="colecciones.html" class="ver-todas reveal">Ver todas</a>
+  </div>
+
+  <div class="collections-grid">
+    <a href="colecciones/riviel/index.html" class="collection-card reveal">
+      <div class="collection-card-bg" style="background: linear-gradient(135deg, var(--riviel-1) 0%, var(--riviel-3) 100%);"></div>
+      <div class="collection-card-overlay">
+        <p class="collection-card-label">Colección 01 · Same, Esmeraldas</p>
+        <h3 class="collection-card-title">Riviel</h3>
+        <p class="collection-card-sub">Carteras · Lámparas · Textiles</p>
+        <div class="collection-card-arrow">
+          Ver colección
+          <svg width="16" height="10" viewBox="0 0 20 12" fill="none">
+            <path d="M0 6H18M14 1l5 5-5 5" stroke="white" stroke-width="1.2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="collection-tag">Disponible</div>
+    </a>
+    <a href="colecciones/otavalo/index.html" class="collection-card reveal">
+      <div class="collection-card-bg" style="background: linear-gradient(135deg, #1a1a2e 0%, #2d1b3d 100%);"></div>
+      <div style="position:absolute; inset:0; opacity:0.2; background: repeating-linear-gradient(90deg, #c0392b 0px, #c0392b 8px, #e67e22 8px, #e67e22 16px, #f1c40f 16px, #f1c40f 24px, #27ae60 24px, #27ae60 32px, #8e44ad 32px, #8e44ad 40px, #2980b9 40px, #2980b9 48px);"></div>
+      <div class="collection-card-overlay" style="background: linear-gradient(to top, rgba(26,26,46,0.92) 0%, rgba(26,26,46,0.3) 50%, transparent 100%);">
+        <p class="collection-card-label">Colección 02 · Otavalo, Imbabura</p>
+        <h3 class="collection-card-title">Otavalo</h3>
+        <p class="collection-card-sub">Tejido Kichwa · Próximamente</p>
+        <div class="collection-card-arrow">
+          Ver colección
+          <svg width="16" height="10" viewBox="0 0 20 12" fill="none">
+            <path d="M0 6H18M14 1l5 5-5 5" stroke="white" stroke-width="1.2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="collection-tag" style="background: var(--otavalo-3); color: #1a1a2e;">Próximamente</div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">RAIZA</div>
+  <p class="footer-copy">© 2025 Raiza · Ecuador</p>
+  <ul class="footer-links">
+    <li><a href="colecciones.html">Colecciones</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => { mobileMenu.classList.toggle('open'); });
+mobileMenu.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => mobileMenu.classList.remove('open')); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
