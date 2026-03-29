@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otavalo — Colección 02 · Raiza</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+  <style>
+    .otavalo-palette {
+      display: flex;
+      height: 6px;
+      width: 100%;
+      margin-top: 40px;
+    }
+    .otavalo-palette div { flex: 1; }
+
+    .coming-soon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2px;
+      padding: 0 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .coming-soon-card {
+      aspect-ratio: 1;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 32px;
+    }
+    .coming-soon-card-content {
+      position: relative;
+      z-index: 1;
+    }
+    .coming-soon-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+    .coming-soon-name {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: white;
+    }
+    .notify-form {
+      max-width: 480px;
+      margin: 48px auto 0;
+      display: flex;
+      gap: 0;
+    }
+    .notify-input {
+      flex: 1;
+      padding: 16px 24px;
+      border: 1px solid rgba(42,42,42,0.2);
+      border-right: none;
+      background: white;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      color: var(--ink);
+      outline: none;
+    }
+    .notify-input::placeholder { color: var(--ink-light); }
+    .notify-btn {
+      padding: 16px 32px;
+      background: #1a1a2e;
+      color: white;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .notify-btn:hover { background: #2d1b3d; }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="../../index.html" class="nav-logo">
+    RAIZA
+    <span>Diseño desde la Raíz</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../../colecciones.html">Colecciones</a></li>
+    <li><a href="../../trazabilidad.html">Trazabilidad</a></li>
+    <li><a href="../../nosotros.html">Nosotros</a></li>
+    <li><a href="../../eventos.html">Dónde Estamos</a></li>
+    <li><a href="../../contacto.html">Contacto</a></li>
+  </ul>
+  <button class="nav-burger" id="burger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../../colecciones.html">Colecciones</a>
+  <a href="../../trazabilidad.html">Trazabilidad</a>
+  <a href="../../nosotros.html">Nosotros</a>
+  <a href="../../eventos.html">Dónde Estamos</a>
+  <a href="../../contacto.html">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="col-hero">
+  <div class="col-hero-bg otavalo"></div>
+  <div class="otavalo-stripe"></div>
+  <div class="col-hero-overlay"></div>
+  <div class="col-hero-content">
+    <p class="col-hero-num" style="opacity:0; animation: fadeUp 0.7s 0.3s forwards;">Colección 02 · Otavalo, Imbabura · Ecuador</p>
+    <h1 class="col-hero-title" style="opacity:0; animation: fadeUp 0.8s 0.5s forwards;">Otavalo</h1>
+    <p class="col-hero-sub" style="opacity:0; animation: fadeUp 0.7s 0.7s forwards;">Inspirada en la tradición milenaria del tejido Kichwa, uno de los oficios más vivos del Ecuador.</p>
+    <div class="otavalo-palette" style="opacity:0; animation: fadeUp 0.6s 0.9s forwards;">
+      <div style="background: #c0392b;"></div>
+      <div style="background: #e67e22;"></div>
+      <div style="background: #f1c40f;"></div>
+      <div style="background: #27ae60;"></div>
+      <div style="background: #8e44ad;"></div>
+      <div style="background: #2980b9;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LA HISTORIA -->
+<div class="leyenda-block reveal">
+  <div class="leyenda-text" style="background: #1a1a2e;">
+    <p class="section-label">La historia detrás</p>
+    <h2 class="section-title">El tejido<br><em>Kichwa</em></h2>
+    <p class="section-body">
+      En Otavalo, en las faldas del volcán Imbabura, los tejedores Kichwa llevan siglos convirtiendo fibras naturales en tapices de color. Cada patrón tiene un significado: el cóndor, la chacana, la Pachamama.
+      <br><br>
+      Esta colección honra ese oficio. Los colores vienen directamente de los tejidos del mercado de Otavalo — el más famoso de América del Sur. Cada pieza lleva en su diseño una historia que tiene más de 500 años.
+    </p>
+  </div>
+  <div class="leyenda-img" style="background: #2d1b3d; min-height: 400px;">
+    <div style="position:absolute; inset:0; opacity:0.3; background: repeating-linear-gradient(90deg, #c0392b 0px, #c0392b 12px, #e67e22 12px, #e67e22 24px, #f1c40f 24px, #f1c40f 36px, #27ae60 36px, #27ae60 48px, #8e44ad 48px, #8e44ad 60px, #2980b9 60px, #2980b9 72px);"></div>
+    <div class="leyenda-img-placeholder" style="position:relative; z-index:1;">Fotografía de Otavalo próximamente</div>
+  </div>
+</div>
+
+<!-- PRÓXIMAMENTE -->
+<section style="padding: 80px 0;">
+  <div style="padding: 0 48px; max-width: 1200px; margin: 0 auto; margin-bottom: 64px; text-align: center;">
+    <p class="section-label reveal">Edición limitada</p>
+    <h2 class="section-title reveal">Los productos<br><em>están en camino</em></h2>
+    <p class="section-body reveal" style="margin: 0 auto; text-align: center; max-width: 480px;">
+      La colección Otavalo está siendo diseñada. Serán entre 5 y 10 piezas únicas, nunca repetidas. Déjanos tu correo para ser el primero en saber.
+    </p>
+    <div class="notify-form reveal">
+      <input type="email" class="notify-input" placeholder="tu@correo.com" id="emailInput">
+      <button class="notify-btn" onclick="notificar()">Notificarme</button>
+    </div>
+    <p id="notifyMsg" style="font-size: 0.75rem; color: var(--terra); margin-top: 16px; display:none;">¡Listo! Te avisamos cuando esté disponible.</p>
+  </div>
+
+  <!-- PLACEHOLDERS de productos -->
+  <div class="coming-soon-grid">
+    <div class="coming-soon-card reveal" style="background: #c0392b;">
+      <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);"></div>
+      <div class="coming-soon-content">
+        <p class="coming-soon-label">Próximamente</p>
+        <p class="coming-soon-name">Pieza 01</p>
+      </div>
+    </div>
+    <div class="coming-soon-card reveal" style="background: #27ae60;">
+      <div style="position:absolute; inset:0; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 4px, transparent 4px, transparent 8px); background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);"></div>
+      <div class="coming-soon-content">
+        <p class="coming-soon-label">Próximamente</p>
+        <p class="coming-soon-name">Pieza 02</p>
+      </div>
+    </div>
+    <div class="coming-soon-card reveal" style="background: #8e44ad;">
+      <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);"></div>
+      <div class="coming-soon-content">
+        <p class="coming-soon-label">Próximamente</p>
+        <p class="coming-soon-name">Pieza 03</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA TRAZABILIDAD -->
+<section style="background: #1a1a2e; padding: 80px 48px; text-align: center; margin-top: 40px;">
+  <p class="section-label reveal" style="color: rgba(255,255,255,0.5);">Mientras tanto</p>
+  <h2 class="section-title reveal" style="color: white;">Conoce la colección<br><em>Riviel</em></h2>
+  <br>
+  <a href="../riviel/index.html" class="btn-primary reveal" style="max-width: 240px; display: inline-block; background: var(--riviel-2);">Ver Riviel</a>
+</section>
+
+<footer>
+  <div class="footer-logo">RAIZA</div>
+  <p class="footer-copy">© 2025 Raiza · Ecuador</p>
+  <ul class="footer-links">
+    <li><a href="../../colecciones.html">Colecciones</a></li>
+    <li><a href="../../trazabilidad.html">Trazabilidad</a></li>
+    <li><a href="../../nosotros.html">Nosotros</a></li>
+    <li><a href="../../eventos.html">Eventos</a></li>
+    <li><a href="../../contacto.html">Contacto</a></li>
+  </ul>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => { mobileMenu.classList.toggle('open'); });
+mobileMenu.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => mobileMenu.classList.remove('open')); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+function notificar() {
+  const email = document.getElementById('emailInput').value;
+  if (email && email.includes('@')) {
+    document.getElementById('notifyMsg').style.display = 'block';
+    document.getElementById('emailInput').value = '';
+  }
+}
+</script>
+</body>
+</html>
